@@ -712,7 +712,7 @@ fi
 
 cd $LOCALBUILDDIR || exit
 
-do_git "git://git.videolan.org/libbluray.git" libbluray-git
+do_git "git://git.videolan.org/git/libbluray.git" libbluray-git
 
 if [[ $compile == "true" ]]; then
 

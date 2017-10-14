@@ -22,7 +22,7 @@ export PKG_CONFIG_PATH CPPFLAGS CFLAGS CXXFLAGS LDFLAGS
 
 do_prompt() {
     # from http://superuser.com/a/608509
-    while read -s -e -t 0.1; do : ; done
+    while read -s -e -t 1; do : ; done
     read -p "$1"
 }
 
@@ -348,7 +348,7 @@ if [ -f "$LOCALDESTDIR/lib/libpng.a" ]; then
 	else
 		echo -ne "\033]0;compile libpng 64Bit\007"
 
-		do_wget "http://downloads.sourceforge.net/project/libpng/libpng16/1.6.20/libpng-1.6.20.tar.gz"
+		do_wget "http://downloads.sourceforge.net/project/libpng/libpng16/1.6.34/libpng-1.6.34.tar.gz"
 
 		./configure --prefix=$LOCALDESTDIR --disable-shared
 

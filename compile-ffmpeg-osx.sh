@@ -695,8 +695,8 @@ if [[ $compile == "true" ]]; then
 		rm -f $LOCALDESTDIR/lib/libvpx.a
 		make clean
 	fi
-
-		./configure --prefix=$LOCALDESTDIR --disable-shared --enable-static --disable-unit-tests --disable-docs --enable-postproc --enable-vp9-postproc --enable-runtime-cpu-detect
+	
+	./configure --prefix=$LOCALDESTDIR --disable-shared --enable-static --disable-unit-tests --disable-docs --enable-postproc --enable-vp9-postproc --enable-runtime-cpu-detect
 
 	make -j $cpuCount
 	make install
@@ -722,6 +722,8 @@ if [[ $compile == "true" ]]; then
 		make uninstall
 		make clean
 	fi
+
+	git submodule update --init
 
 	./configure --prefix=$LOCALDESTDIR --disable-shared --enable-static --disable-examples --disable-bdjava --disable-doxygen-doc --disable-doxygen-dot --without-libxml2 --without-fontconfig --without-freetype --disable-udf LIBXML2_LIBS="-L$LOCALDESTDIR/lib -lxml2" LIBXML2_CFLAGS="-I$LOCALDESTDIR/include/libxml2 -DLIBXML_STATIC"
 

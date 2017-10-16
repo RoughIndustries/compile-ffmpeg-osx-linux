@@ -789,9 +789,9 @@ if [ -f "$LOCALDESTDIR/include/decklink/DeckLinkAPI.h" ]; then
     cp ../../../decklink-osx/DeckLinkAPIVersion.h .
     cp ../../../decklink-osx/DeckLinkAPIDispatch.cpp .
 
-    # sed -i '' "s/void InitDeckLinkAPI (void)/static void      InitDeckLinkAPI (void)/" DeckLinkAPIDispatch.cpp
-    # sed -i '' "s/bool         IsDeckLinkAPIPresent (void)/static bool         IsDeckLinkAPIPresent (void)/" DeckLinkAPIDispatch.cpp
-    # sed -i '' "s/void InitBMDStreamingAPI(void)/static void InitBMDStreamingAPI(void)/" DeckLinkAPIDispatch.cpp
+    sed -i '' "s/void InitDeckLinkAPI (void)/static void      InitDeckLinkAPI (void)/" DeckLinkAPIDispatch.cpp
+    sed -i '' "s/bool         IsDeckLinkAPIPresent (void)/static bool         IsDeckLinkAPIPresent (void)/" DeckLinkAPIDispatch.cpp
+    sed -i '' "s/void InitBMDStreamingAPI(void)/static void InitBMDStreamingAPI(void)/" DeckLinkAPIDispatch.cpp
 
 		if [ ! -f "$LOCALDESTDIR/include/decklink/DeckLinkAPI.h" ]; then
 			echo -------------------------------------------------

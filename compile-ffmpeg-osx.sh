@@ -779,15 +779,15 @@ if [ -f "$LOCALDESTDIR/include/decklink/DeckLinkAPI.h" ]; then
     mkdir decklink
     cd decklink || exit
 
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPI.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIConfiguration.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIDeckControl.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIDiscovery.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIModes.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIStreaming.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPITypes.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIVersion.h
-    do_wget https://raw.githubusercontent.com/jb-alvarado/compile-ffmpeg-osx/master/decklink-osx/DeckLinkAPIDispatch.cpp
+    cp ../../../decklink-osx/DeckLinkAPI.h
+    cp ../../../decklink-osx/DeckLinkAPIConfiguration.h
+    cp ../../../decklink-osx/DeckLinkAPIDeckControl.h
+    cp ../../../decklink-osx/DeckLinkAPIDiscovery.h
+    cp ../../../decklink-osx/DeckLinkAPIModes.h
+    cp ../../../decklink-osx/DeckLinkAPIStreaming.h
+    cp ../../../decklink-osx/DeckLinkAPITypes.h
+    cp ../../../decklink-osx/DeckLinkAPIVersion.h
+    cp ../../../decklink-osx/DeckLinkAPIDispatch.cpp
 
     sed -i '' "s/void	InitDeckLinkAPI (void)/static void	InitDeckLinkAPI (void)/" DeckLinkAPIDispatch.cpp
     sed -i '' "s/bool		IsDeckLinkAPIPresent (void)/static bool		IsDeckLinkAPIPresent (void)/" DeckLinkAPIDispatch.cpp

@@ -778,20 +778,20 @@ if [ -f "$LOCALDESTDIR/include/decklink/DeckLinkAPI.h" ]; then
 		cd $LOCALDESTDIR/include || exit
     mkdir decklink
     cd decklink || exit
+    
+    cp ../../../decklink-osx/DeckLinkAPI.h .
+    cp ../../../decklink-osx/DeckLinkAPIConfiguration.h .
+    cp ../../../decklink-osx/DeckLinkAPIDeckControl.h .
+    cp ../../../decklink-osx/DeckLinkAPIDiscovery.h .
+    cp ../../../decklink-osx/DeckLinkAPIModes.h .
+    cp ../../../decklink-osx/DeckLinkAPIStreaming.h .
+    cp ../../../decklink-osx/DeckLinkAPITypes.h .
+    cp ../../../decklink-osx/DeckLinkAPIVersion.h .
+    cp ../../../decklink-osx/DeckLinkAPIDispatch.cpp .
 
-    cp ../../../decklink-osx/DeckLinkAPI.h
-    cp ../../../decklink-osx/DeckLinkAPIConfiguration.h
-    cp ../../../decklink-osx/DeckLinkAPIDeckControl.h
-    cp ../../../decklink-osx/DeckLinkAPIDiscovery.h
-    cp ../../../decklink-osx/DeckLinkAPIModes.h
-    cp ../../../decklink-osx/DeckLinkAPIStreaming.h
-    cp ../../../decklink-osx/DeckLinkAPITypes.h
-    cp ../../../decklink-osx/DeckLinkAPIVersion.h
-    cp ../../../decklink-osx/DeckLinkAPIDispatch.cpp
-
-    sed -i '' "s/void	InitDeckLinkAPI (void)/static void	InitDeckLinkAPI (void)/" DeckLinkAPIDispatch.cpp
-    sed -i '' "s/bool		IsDeckLinkAPIPresent (void)/static bool		IsDeckLinkAPIPresent (void)/" DeckLinkAPIDispatch.cpp
-    sed -i '' "s/void InitBMDStreamingAPI(void)/static void InitBMDStreamingAPI(void)/" DeckLinkAPIDispatch.cpp
+    # sed -i '' "s/void InitDeckLinkAPI (void)/static void      InitDeckLinkAPI (void)/" DeckLinkAPIDispatch.cpp
+    # sed -i '' "s/bool         IsDeckLinkAPIPresent (void)/static bool         IsDeckLinkAPIPresent (void)/" DeckLinkAPIDispatch.cpp
+    # sed -i '' "s/void InitBMDStreamingAPI(void)/static void InitBMDStreamingAPI(void)/" DeckLinkAPIDispatch.cpp
 
 		if [ ! -f "$LOCALDESTDIR/include/decklink/DeckLinkAPI.h" ]; then
 			echo -------------------------------------------------

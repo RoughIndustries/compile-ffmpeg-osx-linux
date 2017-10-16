@@ -970,7 +970,10 @@ echo "--------------------------------------------------------------------------
 echo "compile ffmpeg"
 echo "-------------------------------------------------------------------------------"
 
-do_git "https://github.com/FFmpeg/FFmpeg.git" ffmpeg-git
+#git clone --branch my_abc http://git.abc.net/git/abc.git
+rm -rf ffmpeg-git
+git clone --branch release/3.2 "https://github.com/FFmpeg/FFmpeg.git" ffmpeg-git
+cd ffmpeg-git
 
 if [[ $compile == "true" ]] || [[ $buildFFmpeg == "true" ]] || [[ ! -f $LOCALDESTDIR/bin/ffmpeg ]]; then
 	if [ -f "$LOCALDESTDIR/lib/libavcodec.a" ]; then
